@@ -1,16 +1,13 @@
-# chat_app
+# Chat App
 
-A new Flutter project.
+Projeto desenvolvido utilizando flutter
 
-## Getting Started
+## Sobre o projeto
 
-This project is a starting point for a Flutter application.
+Desenvolvi esse projeto para colocar meus conhecimentos teoricos em prática.
+Dentro desse aplicativo desenvolvi algumas funcionalidades interassantes, exemplo:
+ - Criar um novo chat
+ - Continuar conversa
+ - Excluir chat
+ - Atualizar a lista exibida de acordo com as interações do usuário
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
