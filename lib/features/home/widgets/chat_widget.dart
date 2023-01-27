@@ -1,4 +1,6 @@
 import 'package:chat_app/features/home/widgets/profile_picture_chat_widget.dart';
+import 'package:chat_app/util/received_messages.dart';
+import 'package:chat_app/util/select_chat_mark.dart';
 import 'package:flutter/material.dart';
 
 class ChatContainer extends StatefulWidget {
@@ -19,20 +21,7 @@ class _ChatContainerState extends State<ChatContainer> {
       ),
       child: Row(
         children: [
-          Positioned(
-            top: 12,
-            child: Container(
-              width: 5,
-              height: 65,
-              decoration: const BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(12),
-                  bottomRight: Radius.circular(12),
-                ),
-              ),
-            ),
-          ),
+          const SelectChat(),
           const SizedBox(
             width: 15,
           ),
@@ -95,36 +84,7 @@ class _ChatContainerState extends State<ChatContainer> {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 65.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Now",
-                  style: TextStyle(color: Colors.grey[500]),
-                ),
-                const SizedBox(
-                  height: 7,
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  height: 20,
-                  width: 20,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.blue,
-                  ),
-                  child: const Text(
-                    "2",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
+          const ReceivedMessages(time: "Now", count: "2"),
         ],
       ),
     );
