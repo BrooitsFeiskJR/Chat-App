@@ -1,6 +1,6 @@
 # Chat App
 
-Projeto desenvolvido utilizando flutter
+Projeto desenvolvido utilizando flutter e GetX
 
 ## Sobre o projeto
 

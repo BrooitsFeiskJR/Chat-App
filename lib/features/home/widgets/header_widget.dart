@@ -20,7 +20,7 @@ class Header extends GetView<HomeController> {
               ),
             ),
             GestureDetector(
-              onTap: controller.addChat(
+              onTap: () => controller.addChat(
                 "Andrea",
                 "Clark",
                 "Hey, I have some ideas about it.\nDownloaded a few images from",

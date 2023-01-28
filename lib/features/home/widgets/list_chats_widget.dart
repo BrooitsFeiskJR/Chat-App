@@ -9,9 +9,9 @@ class ListChats extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Obx(
-        () => ListView.separated(
+    return Obx(
+      () => Expanded(
+        child: ListView.separated(
           itemCount: controller.itemCount.value,
           itemBuilder: (context, index) {
             return ChatContainer(

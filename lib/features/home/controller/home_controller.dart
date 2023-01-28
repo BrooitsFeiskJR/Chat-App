@@ -2,10 +2,6 @@ import 'package:get/get.dart';
 
 import '../data/model.dart';
 
-/*
-  Adionar o mesmo item nessa lista []
-*/
-
 class HomeController extends GetxController {
   Rx<List<ChatInfo>> chats = Rx<List<ChatInfo>>([]);
   late ChatInfo chat;
@@ -27,9 +23,9 @@ class HomeController extends GetxController {
   }
 
   addChat(String name, String lastName, String message) {
-    chat = ChatInfo(name: name, lastName: lastName, message: message);
-    chats.value.add(chat);
     Future.delayed(const Duration(milliseconds: 500), () {
+      chat = ChatInfo(name: name, lastName: lastName, message: message);
+      chats.value.add(chat);
       itemCount.value = chats.value.length;
     });
   }
