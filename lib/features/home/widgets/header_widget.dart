@@ -1,6 +1,8 @@
+import 'package:chat_app/features/home/controller/home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class Header extends StatelessWidget {
+class Header extends GetView<HomeController> {
   const Header({super.key});
 
   @override
@@ -9,17 +11,24 @@ class Header extends StatelessWidget {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Text(
+          children: [
+            const Text(
               "Inbox",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 32,
               ),
             ),
-            Icon(
-              Icons.tune_outlined,
-              size: 28,
+            GestureDetector(
+              onTap: controller.addChat(
+                "Andrea",
+                "Clark",
+                "Hey, I have some ideas about it.\nDownloaded a few images from",
+              ),
+              child: const Icon(
+                Icons.add,
+                size: 28,
+              ),
             ),
           ],
         ),

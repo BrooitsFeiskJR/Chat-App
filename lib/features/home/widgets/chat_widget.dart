@@ -1,16 +1,20 @@
+import 'package:chat_app/features/home/controller/home_controller.dart';
 import 'package:chat_app/features/home/widgets/profile_picture_chat_widget.dart';
 import 'package:chat_app/util/received_messages.dart';
 import 'package:chat_app/util/select_chat_mark.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class ChatContainer extends StatefulWidget {
-  const ChatContainer({super.key});
-
-  @override
-  State<ChatContainer> createState() => _ChatContainerState();
-}
-
-class _ChatContainerState extends State<ChatContainer> {
+class ChatContainer extends StatelessWidget {
+  const ChatContainer({
+    super.key,
+    required this.name,
+    required this.lastName,
+    required this.message,
+  });
+  final String name;
+  final String lastName;
+  final String message;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,9 +38,9 @@ class _ChatContainerState extends State<ChatContainer> {
               children: [
                 Row(
                   children: [
-                    const Text(
-                      "Andrea",
-                      style: TextStyle(
+                    Text(
+                      name,
+                      style: const TextStyle(
                         fontSize: 20,
                         color: Colors.blue,
                         fontWeight: FontWeight.bold,
@@ -62,9 +66,9 @@ class _ChatContainerState extends State<ChatContainer> {
                     const SizedBox(
                       width: 10,
                     ),
-                    const Text(
-                      "Clark",
-                      style: TextStyle(
+                    Text(
+                      lastName,
+                      style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
@@ -76,7 +80,7 @@ class _ChatContainerState extends State<ChatContainer> {
                   height: 5,
                 ),
                 Text(
-                  "Hey, I have some ideas about it.\nDownloaded a few images from",
+                  message,
                   style: TextStyle(
                     color: Colors.grey[500],
                   ),
