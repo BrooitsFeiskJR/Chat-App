@@ -11,12 +11,15 @@ class HomeScreen extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.inbox_outlined), label: ""),
-        BottomNavigationBarItem(icon: Icon(Icons.public_outlined), label: ""),
-        BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
-      ]),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.inbox_outlined), label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.public_outlined), label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
+        ],
+      ),
       backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Column(
           children: [

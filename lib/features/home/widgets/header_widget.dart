@@ -22,10 +22,16 @@ class Header extends GetView<HomeController> {
             ),
             GestureDetector(
               onTap: () => showModalBottomSheet(
+                isScrollControlled: true,
                 context: context,
-                builder: (BuildContext context) {
-                  return const AddChatContainer();
-                },
+                builder: (BuildContext context) => Padding(
+                  padding: EdgeInsets.only(
+                      top: 25,
+                      left: 15,
+                      right: 15,
+                      bottom: MediaQuery.of(context).viewInsets.bottom + 15),
+                  child: const AddChatContainer(),
+                ),
               ),
               child: const Icon(
                 Icons.add,
