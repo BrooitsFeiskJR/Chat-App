@@ -29,4 +29,11 @@ class HomeController extends GetxController {
       itemCount.value = chats.value.length;
     });
   }
+
+  removeChat(int index) {
+    Future.delayed(const Duration(milliseconds: 500), () {
+      chats.value.removeAt(index);
+      itemCount.value = chats.value.length;
+    });
+  }
 }

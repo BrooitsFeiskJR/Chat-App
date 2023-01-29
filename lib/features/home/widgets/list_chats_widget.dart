@@ -18,6 +18,7 @@ class ListChats extends GetView<HomeController> {
               name: controller.chats.value[index].name,
               lastName: controller.chats.value[index].lastName,
               message: controller.chats.value[index].message,
+              index: index,
             );
           },
           separatorBuilder: (context, index) => const SizedBox(height: 10),

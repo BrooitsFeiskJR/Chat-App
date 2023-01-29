@@ -11,10 +11,12 @@ class ChatContainer extends StatelessWidget {
     required this.name,
     required this.lastName,
     required this.message,
+    required this.index,
   });
   final String name;
   final String lastName;
   final String message;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +31,9 @@ class ChatContainer extends StatelessWidget {
           const SizedBox(
             width: 15,
           ),
-          const ProfilePicture(),
+          ProfilePicture(
+            index: index,
+          ),
           Padding(
             padding: const EdgeInsets.only(left: 15.0),
             child: Column(
