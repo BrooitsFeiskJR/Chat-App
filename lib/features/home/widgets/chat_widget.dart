@@ -58,7 +58,7 @@ class ChatContainer extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(
-                            width: 10,
+                            width: 6,
                           ),
                           Text(
                             lastName,
