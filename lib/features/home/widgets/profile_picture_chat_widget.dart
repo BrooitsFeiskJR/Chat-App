@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProfilePicture extends GetView<HomeController> {
-  ProfilePicture({super.key, required this.index});
+  ProfilePicture({
+    super.key,
+    required this.index,
+    required this.url,
+  });
 
   int index;
+  String url;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -17,12 +22,11 @@ class ProfilePicture extends GetView<HomeController> {
               child: Container(
                 height: 55,
                 width: 55,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: NetworkImage(
-                        "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                    image: NetworkImage(url),
                   ),
                 ),
               ),

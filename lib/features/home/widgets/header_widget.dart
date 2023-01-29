@@ -1,4 +1,5 @@
 import 'package:chat_app/features/home/controller/home_controller.dart';
+import 'package:chat_app/features/home/widgets/container_modal_add_chat_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,10 +21,11 @@ class Header extends GetView<HomeController> {
               ),
             ),
             GestureDetector(
-              onTap: () => controller.addChat(
-                "Andrea",
-                "Clark",
-                "Hey, I have some ideas about it.\nDownloaded a few images from",
+              onTap: () => showModalBottomSheet(
+                context: context,
+                builder: (BuildContext context) {
+                  return const AddChatContainer();
+                },
               ),
               child: const Icon(
                 Icons.add,

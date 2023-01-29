@@ -6,17 +6,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ChatContainer extends StatelessWidget {
-  const ChatContainer({
-    super.key,
-    required this.name,
-    required this.lastName,
-    required this.message,
-    required this.index,
-  });
+  const ChatContainer(
+      {super.key,
+      required this.name,
+      required this.lastName,
+      required this.message,
+      required this.index,
+      required this.url});
   final String name;
   final String lastName;
   final String message;
   final int index;
+  final String url;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,6 +34,7 @@ class ChatContainer extends StatelessWidget {
           ),
           ProfilePicture(
             index: index,
+            url: url,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 15.0),
