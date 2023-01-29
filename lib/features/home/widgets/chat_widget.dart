@@ -1,12 +1,12 @@
-import 'package:chat_app/features/home/controller/home_controller.dart';
+import 'dart:math';
+
 import 'package:chat_app/features/home/widgets/profile_picture_chat_widget.dart';
 import 'package:chat_app/util/received_messages.dart';
 import 'package:chat_app/util/select_chat_mark.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class ChatContainer extends StatelessWidget {
-  const ChatContainer(
+  ChatContainer(
       {super.key,
       required this.name,
       required this.lastName,
@@ -18,6 +18,8 @@ class ChatContainer extends StatelessWidget {
   final String message;
   final int index;
   final String url;
+
+  Random random = Random();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,73 +30,66 @@ class ChatContainer extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const SelectChat(),
-          const SizedBox(
-            width: 15,
-          ),
-          ProfilePicture(
-            index: index,
-            url: url,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
+          Expanded(
+            child: Row(
               children: [
-                Row(
-                  children: [
-                    Text(
-                      name,
-                      style: const TextStyle(
-                        fontSize: 20,
-                        color: Colors.blue,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 12,
-                      width: 12,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.grey[300],
-                      ),
-                      child: const Icon(
-                        Icons.chevron_right_outlined,
-                        size: 12,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      lastName,
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.start,
-                    ),
-                  ],
-                ),
+                const SelectChat(),
                 const SizedBox(
-                  height: 5,
+                  width: 15,
                 ),
-                Text(
-                  message,
-                  style: TextStyle(
-                    color: Colors.grey[500],
+                ProfilePicture(
+                  index: index,
+                  url: url,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            name,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            lastName,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        message,
+                        style: TextStyle(
+                          color: Colors.grey[500],
+                        ),
+                      )
+                    ],
                   ),
-                )
+                ),
               ],
             ),
           ),
-          const ReceivedMessages(time: "Now", count: "2"),
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: ReceivedMessages(
+                time: "Now", count: random.nextInt(9).toString()),
+          ),
         ],
       ),
     );

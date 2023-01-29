@@ -55,13 +55,36 @@ class AddChatContainer extends GetView<HomeController> {
           ),
           GestureDetector(
             onTap: () {
-              controller.addChat(
-                controller.nameTextEditingController.text,
-                controller.lastNameTextEditingController.text,
-                controller.messageTextEditingController.text,
-                controller.urlextEditingController.text,
-              );
-              Navigator.pop(context);
+              if (controller.nameTextEditingController.text.isNotEmpty &&
+                  controller.lastNameTextEditingController.text.isNotEmpty &&
+                  controller.messageTextEditingController.text.isNotEmpty &&
+                  controller.urlextEditingController.text.isNotEmpty) {
+                controller.addChat(
+                  controller.nameTextEditingController.text,
+                  controller.lastNameTextEditingController.text,
+                  controller.messageTextEditingController.text,
+                  controller.urlextEditingController.text,
+                );
+                Navigator.pop(context);
+              } else {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                    title: const Text("Oops... Missing Information!"),
+                    content: const Text("Please fill in all fields."),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, "Cancel"),
+                        child: const Text("Cancel"),
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, "Ok"),
+                        child: const Text("OK"),
+                      ),
+                    ],
+                  ),
+                );
+              }
             },
             child: Container(
               height: 60,
