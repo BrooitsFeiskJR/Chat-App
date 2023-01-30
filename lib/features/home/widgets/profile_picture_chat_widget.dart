@@ -2,15 +2,19 @@ import 'package:chat_app/features/home/controller/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+// 55
+
 class ProfilePicture extends GetView<HomeController> {
   ProfilePicture({
     super.key,
     required this.index,
     required this.url,
+    required this.size,
   });
 
   int index;
   String url;
+  double? size;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,8 +24,8 @@ class ProfilePicture extends GetView<HomeController> {
             GestureDetector(
               onTap: () => controller.removeChat(index),
               child: Container(
-                height: 55,
-                width: 55,
+                height: size,
+                width: size,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
