@@ -15,7 +15,7 @@ class ListChats extends GetView<HomeController> {
           itemCount: controller.itemCount.value,
           itemBuilder: (context, index) {
             return Dismissible(
-              key: Key(controller.chats.value[index].name),
+              key: UniqueKey(),
               onDismissed: (direction) {
                 controller.removeChat(index);
                 ScaffoldMessenger.of(context).showSnackBar(

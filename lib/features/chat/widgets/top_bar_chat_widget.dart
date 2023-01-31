@@ -11,6 +11,8 @@ class TopBarChatScreen extends GetView<HomeController> {
   Widget build(BuildContext context) {
     final fullname =
         "${controller.chats.value[index].name} ${controller.chats.value[index].lastName}";
+    final onlyFirstName =
+        "${controller.chats.value[index].name} ${controller.chats.value[index].lastName.characters.first}";
     return Padding(
       padding: const EdgeInsets.only(
         top: 25.0,
@@ -41,7 +43,7 @@ class TopBarChatScreen extends GetView<HomeController> {
                     width: 10,
                   ),
                   Text(
-                    fullname,
+                    fullname.length < 16 ? fullname : onlyFirstName,
                     style: const TextStyle(
                       fontSize: 20,
                       color: Colors.white,

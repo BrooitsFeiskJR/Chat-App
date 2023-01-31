@@ -2,8 +2,6 @@ import 'package:chat_app/features/home/controller/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-// 55
-
 class ProfilePicture extends GetView<HomeController> {
   ProfilePicture({
     super.key,
