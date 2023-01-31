@@ -19,18 +19,21 @@ class ProfilePicture extends GetView<HomeController> {
       children: [
         Stack(
           children: [
-            GestureDetector(
-              onTap: () => controller.removeChat(index),
-              child: Container(
+            ClipOval(
+              child: Image.network(
+                url,
                 height: size,
                 width: size,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(url),
-                  ),
-                ),
+                errorBuilder: ((context, Object exception, stackTrace) {
+                  return ClipOval(
+                    child: Image.network(
+                      height: size,
+                      width: size,
+                      "https://www.shutterstock.com/image-vector/caution-exclamation-mark-white-red-260nw-1055269061.jpg",
+                      fit: BoxFit.cover,
+                    ),
+                  );
+                }),
               ),
             ),
             Positioned(

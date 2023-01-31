@@ -37,7 +37,7 @@ class TopBarChatScreen extends GetView<HomeController> {
                   ProfilePicture(
                     index: index,
                     url: controller.chats.value[index].url,
-                    size: 45,
+                    size: 40,
                   ),
                   const SizedBox(
                     width: 10,
