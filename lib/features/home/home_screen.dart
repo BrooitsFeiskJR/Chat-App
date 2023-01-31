@@ -1,4 +1,5 @@
 import 'package:chat_app/features/home/controller/home_controller.dart';
+import 'package:chat_app/features/home/widgets/empty_chat_list_widget.dart';
 
 import 'package:chat_app/features/home/widgets/header_widget.dart';
 import 'package:chat_app/features/home/widgets/list_chats_widget.dart';
@@ -31,7 +32,11 @@ class HomeScreen extends GetView<HomeController> {
                 ],
               ),
             ),
-            const ListChats(),
+            Obx(
+              () => controller.itemCount.value > 0
+                  ? const ListChats()
+                  : const EmptyList(),
+            ),
           ],
         ),
       ),

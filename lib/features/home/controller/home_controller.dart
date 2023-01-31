@@ -9,8 +9,11 @@ class HomeController extends GetxController {
   TextEditingController lastNameTextEditingController = TextEditingController();
   TextEditingController messageTextEditingController = TextEditingController();
   TextEditingController urlextEditingController = TextEditingController();
+  RxBool _isLoading = true.obs;
   late ChatInfo chat;
   var itemCount = 0.obs;
+
+  RxBool checkIsLoading() => _isLoading;
 
   @override
   void onInit() {
@@ -41,9 +44,12 @@ class HomeController extends GetxController {
   }
 
   removeChat(int index) {
-    Future.delayed(const Duration(milliseconds: 500), () {
-      chats.value.removeAt(index);
-      itemCount.value = chats.value.length;
-    });
+    Future.delayed(
+      const Duration(milliseconds: 500),
+      () {
+        chats.value.removeAt(index);
+        itemCount.value = chats.value.length;
+      },
+    );
   }
 }

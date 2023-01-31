@@ -4,6 +4,7 @@ import 'package:chat_app/features/home/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+// sk-t86H1eh73m5y8EmHPpVxT3BlbkFJva9nsIQOtzsaxQMmLI8
 class ChatApp extends GetView<HomeController> {
   const ChatApp({super.key});
 
