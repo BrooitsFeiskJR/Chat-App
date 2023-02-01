@@ -18,6 +18,7 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    Future.delayed(const Duration(seconds: 2), () => _isLoading.value = false);
   }
 
   @override

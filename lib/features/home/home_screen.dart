@@ -3,6 +3,7 @@ import 'package:chat_app/features/home/widgets/empty_chat_list_widget.dart';
 
 import 'package:chat_app/features/home/widgets/header_widget.dart';
 import 'package:chat_app/features/home/widgets/list_chats_widget.dart';
+import 'package:chat_app/features/home/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,35 +12,42 @@ class HomeScreen extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.inbox_outlined), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.public_outlined), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
-        ],
-      ),
-      backgroundColor: Colors.white,
-      resizeToAvoidBottomInset: true,
-      body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(25.0),
-              child: Column(
-                children: const [
-                  Header(),
+    return Obx(
+      () => controller.checkIsLoading().isTrue
+          ? const Loading()
+          : Scaffold(
+              bottomNavigationBar: BottomNavigationBar(
+                items: const [
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.inbox_outlined), label: ""),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.public_outlined), label: ""),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.settings), label: ""),
                 ],
               ),
+              backgroundColor: Colors.white,
+              resizeToAvoidBottomInset: true,
+              body: SafeArea(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(25.0),
+                      child: Column(
+                        children: const [
+                          Header(),
+                        ],
+                      ),
+                    ),
+                    Obx(
+                      () => controller.itemCount.value > 0
+                          ? const ListChats()
+                          : const EmptyList(),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            Obx(
-              () => controller.itemCount.value > 0
-                  ? const ListChats()
-                  : const EmptyList(),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
